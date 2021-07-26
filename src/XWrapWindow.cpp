@@ -3,9 +3,7 @@
 XWrapWindow::XWrapWindow()
 {
    positionSize = position_size();
-   blackWhitePixel = black_white_pixel(
-                        0, 
-                        0);
+   blackWhitePixel = black_white_pixel(0xFFF, 0xFFFFFFFF);
 }
 
 XWrapWindow::XWrapWindow(
@@ -33,6 +31,8 @@ void XWrapWindow::createSimpleWindow()
       XSetWindowAttributes newAttributes;
       newAttributes.override_redirect = 0;
       newAttributes.event_mask = 0xFFFFFF;
+
+
       attribute_setter = new XWrapWindow::AttributeSetter(
          window, 
          getDisplay(), 

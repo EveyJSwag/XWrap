@@ -20,6 +20,7 @@ public:
 
    void createSimpleWindow();
 
+   Window getWindowHandle() {return window;}
    class AttributeSetter
    {
    public:

@@ -16,14 +16,26 @@ int main()
 
       XEvent event = {0};
 
+      
+
       while(1)
       {
          XNextEvent(xwrapwindow->getDisplay(), &event);
 
+         if (event.type == 12)
+         {
+            std::cout << "hehe";
+            XDrawRectangle(
+               xwrapwindow->getDisplay(), 
+               xwrapwindow->getWindowHandle(), 
+               DefaultGC( xwrapwindow->getDisplay(), DefaultScreen(xwrapwindow->getDisplay())),
+               0,0,
+               100,100);
+         }
          xwraplogger->logX11Event(event.type);
       }
 
-      //delete xwraplogger;
+      delete xwraplogger;
 
    }
    catch (XWrapException* e)
